@@ -16,10 +16,37 @@ const slides = [
 		"tagLine":"Autocollants <span>avec découpe laser sur mesure</span>"
 	}
 ]
-function ok(){alert("OK")}
 
 
+// Récupérer les éléments de la page web en séléctionnant la class CSS
 const arrow_left = document.querySelector(".arrow_left");
 const arrow_right = document.querySelector(".arrow_right");
-arrow_left.addEventListener("click",ok)
-arrow_right.addEventListener("click",ok)
+
+// Séléction de l'élément pour le slider image
+const sliderImagesContainer = document.querySelector(".banner-img");
+// Génération du code
+//sliderImagesContainer.src = "./assets/images/slideshow/slide3.jpg"
+
+
+
+// eventListener sur les flèches
+arrow_left.addEventListener("click", () => {
+	for (var i = 0; i < slides.length; i++) {
+		//console.log(slides[i]);
+		sliderImagesContainer.src = "./assets/images/slideshow/"`${slides[i]}`
+
+	  }
+})
+
+//sliderImages.setAttribute("src", "./assets/images/slidesh" (slides.image))
+
+
+
+
+//selectionner l'éllément ou mettre les image 
+// appliquer le nouvel élément ds la html
+
+
+
+
+
