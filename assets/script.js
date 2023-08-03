@@ -21,24 +21,28 @@ const slides = [
 // Récupérer les éléments de la page web en séléctionnant la class CSS
 const arrow_left = document.querySelector(".arrow_left");
 const arrow_right = document.querySelector(".arrow_right");
-
 // Séléction de l'élément pour le slider image
 const sliderImagesContainer = document.querySelector(".banner-img");
 
 
+
+
 // eventListener sur flèche gauche
 arrow_left.addEventListener("click", () => {
-	for (var i = 0; i < slides.length; i++) {
+	for (let i = 0; i < slides.length; i++) {
 		
-		//console.log(slides[i]);
-		//sliderImagesContainer.src = "./assets/images/slideshow/"`${slides[i]}`
 		sliderImagesContainer.src = "./assets/images/slideshow/"+ slides[i].image
+		i++
 	  }
 })
 
+
+
 // eventListener sur flèche droite
 arrow_right.addEventListener("click", () => {
-	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[1].image
+	let i = slides.length
+	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
+	i++
 
 })
 
