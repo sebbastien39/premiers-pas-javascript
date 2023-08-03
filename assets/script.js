@@ -23,17 +23,18 @@ const arrow_left = document.querySelector(".arrow_left");
 const arrow_right = document.querySelector(".arrow_right");
 // Séléction de l'élément pour le slider image
 const sliderImagesContainer = document.querySelector(".banner-img");
+let i = 0
 
 
 
-
-// eventListener sur flèche gauche
+// Ajout écouteur d'événement, eventListener sur flèche gauche
 arrow_left.addEventListener("click", () => {
-	for (let i = 0; i < slides.length; i++) {
+	
 		
 		sliderImagesContainer.src = "./assets/images/slideshow/"+ slides[i].image
 		i++
-	  }
+		
+	  
 })
 
 
