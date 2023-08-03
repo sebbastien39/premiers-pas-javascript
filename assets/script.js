@@ -24,19 +24,28 @@ const arrow_right = document.querySelector(".arrow_right");
 
 // Séléction de l'élément pour le slider image
 const sliderImagesContainer = document.querySelector(".banner-img");
-// Génération du code
-//sliderImagesContainer.src = "./assets/images/slideshow/slide3.jpg"
 
 
-
-// eventListener sur les flèches
+// eventListener sur flèche gauche
 arrow_left.addEventListener("click", () => {
 	for (var i = 0; i < slides.length; i++) {
+		
 		//console.log(slides[i]);
-		sliderImagesContainer.src = "./assets/images/slideshow/"`${slides[i]}`
-
+		//sliderImagesContainer.src = "./assets/images/slideshow/"`${slides[i]}`
+		sliderImagesContainer.src = "./assets/images/slideshow/"+ slides[i].image
 	  }
 })
+
+// eventListener sur flèche droite
+arrow_right.addEventListener("click", () => {
+	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[1].image
+
+})
+
+
+
+// Génération du code
+//sliderImagesContainer.src = "./assets/images/slideshow/slide3.jpg"
 
 //sliderImages.setAttribute("src", "./assets/images/slidesh" (slides.image))
 
