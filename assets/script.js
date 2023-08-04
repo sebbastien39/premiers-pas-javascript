@@ -18,47 +18,56 @@ const slides = [
 ]
 
 
-// Récupérer les éléments de la page web en séléctionnant la class CSS
+// Récupération les éléments de la page web en séléctionnant la class CSS
 const arrow_left = document.querySelector(".arrow_left");
 const arrow_right = document.querySelector(".arrow_right");
-// Séléction de l'élément pour le slider image
+// Récupération de l'élément pour le slider image
 const sliderImagesContainer = document.querySelector(".banner-img");
-let i = 0
+// Récupération de l'élément dot
+//let bulletPoints = document.getElementById("#dots")
+// Récupération élément pour le texte
+//let texteSlide = document.querySelectorById("#banner p")
+//console.log(dot)
 
+
+// Ajout écouteur d'événement, eventListener sur paragraphe
+let texteSlider = document.querySelector("#banner p")
+
+
+
+// Compteur slider
+
+i = 1
+
+
+
+//	texteSlides.innerHTML = slides[i].tagLine
 
 
 // Ajout écouteur d'événement, eventListener sur flèche gauche
 arrow_left.addEventListener("click", () => {
-	
-		
 		sliderImagesContainer.src = "./assets/images/slideshow/"+ slides[i].image
-		i++
+		i--
+		if(i < 0)  {
+			i = 0
+		}	
+		//texteSlider.innerHTML = slides[i].tagLine;
 		
-	  
 })
 
-
-
-// eventListener sur flèche droite
+// Ajout écouteur d'événement, eventListener sur flèche droite
 arrow_right.addEventListener("click", () => {
-	let i = slides.length
-	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
-	i++
+	sliderImagesContainer.src = "./assets/images/slideshow/"+ slides[i].image
 
+	i++ 
+	if(i === slides.length){
+		i = 0
+	}
+	//texteSlider.innerHTML = slides[i].tagLine
+	
+	
 })
 
-
-
-// Génération du code
-//sliderImagesContainer.src = "./assets/images/slideshow/slide3.jpg"
-
-//sliderImages.setAttribute("src", "./assets/images/slidesh" (slides.image))
-
-
-
-
-//selectionner l'éllément ou mettre les image 
-// appliquer le nouvel élément ds la html
 
 
 
