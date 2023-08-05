@@ -25,6 +25,25 @@ const arrow_right = document.querySelector(".arrow_right");
 const sliderImagesContainer = document.querySelector(".banner-img");
 // Récupération de l'élément dot
 let bulletPoints = document.querySelector("#dots")
+
+bulletPoints.innerHTML = ""
+for(let j = 0; j < slides.length; j++){
+
+// Création élément div
+let bulletPoint = document.createElement("div")
+// création élément dot
+bulletPoint.classList.add("dot")
+
+if (j == 0){
+	bulletPoint.classList.add("dot_selected")
+
+}
+// ajout à la div dots
+bulletPoints.appendChild(bulletPoint)
+}
+
+
+
 // Récupération élément pour le texte
 //let texteSlide = document.querySelectorById("#banner p")
 // Ajout écouteur d'événement, eventListener sur paragraphe
@@ -40,8 +59,8 @@ arrow_right.addEventListener("click", () => {
 	}
 	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
 	texteSlider.innerHTML = slides[i].tagLine
-	
 })
+
 // Ajout écouteur d'événement, eventListener sur flèche gauche + fonction
 arrow_left.addEventListener("click", () => {
     i--
@@ -51,10 +70,3 @@ arrow_left.addEventListener("click", () => {
 	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
 	texteSlider.innerHTML = slides[i].tagLine
 	})
-
-
-
-
-
-
-
