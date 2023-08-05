@@ -24,49 +24,34 @@ const arrow_right = document.querySelector(".arrow_right");
 // Récupération de l'élément pour le slider image
 const sliderImagesContainer = document.querySelector(".banner-img");
 // Récupération de l'élément dot
-//let bulletPoints = document.getElementById("#dots")
+let bulletPoints = document.querySelector("#dots")
 // Récupération élément pour le texte
 //let texteSlide = document.querySelectorById("#banner p")
-//console.log(dot)
-
-
 // Ajout écouteur d'événement, eventListener sur paragraphe
 let texteSlider = document.querySelector("#banner p")
-
-
-
 // Compteur slider
+let i = 0
 
-i = 1
-
-
-
-//	texteSlides.innerHTML = slides[i].tagLine
-
-
-// Ajout écouteur d'événement, eventListener sur flèche gauche
-arrow_left.addEventListener("click", () => {
-		sliderImagesContainer.src = "./assets/images/slideshow/"+ slides[i].image
-		i--
-		if(i < 0)  {
-			i = 0
-		}	
-		//texteSlider.innerHTML = slides[i].tagLine;
-		
-})
-
-// Ajout écouteur d'événement, eventListener sur flèche droite
+// Ajout écouteur d'événement, eventListener sur flèche droite + fonction
 arrow_right.addEventListener("click", () => {
-	sliderImagesContainer.src = "./assets/images/slideshow/"+ slides[i].image
-
 	i++ 
 	if(i === slides.length){
-		i = 0
+		i = 0 
 	}
-	//texteSlider.innerHTML = slides[i].tagLine
-	
+	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
+	texteSlider.innerHTML = slides[i].tagLine
 	
 })
+// Ajout écouteur d'événement, eventListener sur flèche gauche + fonction
+arrow_left.addEventListener("click", () => {
+    i--
+    if(i < 0) {
+        i = slides.length - 1
+    }
+	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
+	texteSlider.innerHTML = slides[i].tagLine
+	})
+
 
 
 
