@@ -26,22 +26,24 @@ const sliderImagesContainer = document.querySelector(".banner-img");
 // Récupération de l'élément dot
 let bulletPoints = document.querySelector("#dots")
 
-bulletPoints.innerHTML = ""
-for(let j = 0; j < slides.length; j++){
+function createBulletPoints(slide){
+	bulletPoints.innerHTML = ""
+	for(let j = 0; j < slides.length; j++){
 
-// Création élément div
-let bulletPoint = document.createElement("div")
-// création élément dot
-bulletPoint.classList.add("dot")
+	// Création élément div
+	let bulletPoint = document.createElement("div")
+	// création élément dot
+	bulletPoint.classList.add("dot")
 
-if (j == 0){
-	bulletPoint.classList.add("dot_selected")
-
+	if (j == slide){
+		bulletPoint.classList.add("dot_selected")
+	}
+	// ajout à la div dots
+	bulletPoints.appendChild(bulletPoint)
+	}
 }
-// ajout à la div dots
-bulletPoints.appendChild(bulletPoint)
-}
 
+createBulletPoints(0)
 
 
 // Récupération élément pour le texte
@@ -59,6 +61,8 @@ arrow_right.addEventListener("click", () => {
 	}
 	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
 	texteSlider.innerHTML = slides[i].tagLine
+	createBulletPoints(i)
+	
 })
 
 // Ajout écouteur d'événement, eventListener sur flèche gauche + fonction
@@ -69,4 +73,5 @@ arrow_left.addEventListener("click", () => {
     }
 	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
 	texteSlider.innerHTML = slides[i].tagLine
-	})
+	createBulletPoints(i)
+})
