@@ -17,7 +17,7 @@ const slides = [
 	}
 ]
 
-// Récupération des éléments flèches de la page web en séléctionnant la class CSS
+// Récupération des éléments flèches de la page web en sélectionnant la class CSS
 const arrow_left = document.querySelector(".arrow_left");
 const arrow_right = document.querySelector(".arrow_right");
 // Récupération de l'élément pour le slider image
@@ -28,21 +28,20 @@ let texteSlider = document.querySelector("#banner p")
 let bulletPoints = document.querySelector("#dots")
 
 function createBulletPoints(slide){
-	bulletPoints.innerHTML = ""
-	for(let j = 0; j < slides.length; j++){
-
-	// Création élément div
-	let bulletPoint = document.createElement("div")
-	// Ajout élément dot à la nouvelle div
-	bulletPoint.classList.add("dot")
-
-	if (j == slide){
-		bulletPoint.classList.add("dot_selected")
-	}
-	// ajout à la div dots
-	bulletPoints.appendChild(bulletPoint)
-	}
-}
+ 	bulletPoints.innerHTML = ""
+ 	for(let j = 0; j < slides.length; j++){
+		// Création élément div
+		let bulletPoint = document.createElement("div")
+		// Ajout class dot à la nouvelle div
+		bulletPoint.classList.add("dot")
+	// Condition dot selected
+ 	if (j == slide){
+ 		bulletPoint.classList.add("dot_selected")
+ 	}
+ 	// Ajout nouvel élément à la div parent dots
+ 	bulletPoints.appendChild(bulletPoint)
+ 	}
+ }
 
 createBulletPoints(0)
 
@@ -55,6 +54,7 @@ arrow_right.addEventListener("click", () => {
 	if(i === slides.length){
 		i = 0 
 	}
+	// méthode setAttribute sliderImagesContainer.setAttribute(“src”, image.jpg)
 	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
 	texteSlider.innerHTML = slides[i].tagLine
 	createBulletPoints(i)	
