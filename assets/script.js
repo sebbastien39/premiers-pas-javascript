@@ -17,12 +17,13 @@ const slides = [
 	}
 ]
 
-
-// Récupération les éléments de la page web en séléctionnant la class CSS
+// Récupération des éléments flèches de la page web en séléctionnant la class CSS
 const arrow_left = document.querySelector(".arrow_left");
 const arrow_right = document.querySelector(".arrow_right");
 // Récupération de l'élément pour le slider image
 const sliderImagesContainer = document.querySelector(".banner-img");
+// Ajout écouteur d'événement, eventListener sur paragraphe
+let texteSlider = document.querySelector("#banner p")
 // Récupération de l'élément dot
 let bulletPoints = document.querySelector("#dots")
 
@@ -32,7 +33,7 @@ function createBulletPoints(slide){
 
 	// Création élément div
 	let bulletPoint = document.createElement("div")
-	// création élément dot
+	// Ajout élément dot à la nouvelle div
 	bulletPoint.classList.add("dot")
 
 	if (j == slide){
@@ -45,11 +46,6 @@ function createBulletPoints(slide){
 
 createBulletPoints(0)
 
-
-// Récupération élément pour le texte
-//let texteSlide = document.querySelectorById("#banner p")
-// Ajout écouteur d'événement, eventListener sur paragraphe
-let texteSlider = document.querySelector("#banner p")
 // Compteur slider
 let i = 0
 
@@ -61,8 +57,7 @@ arrow_right.addEventListener("click", () => {
 	}
 	sliderImagesContainer.src = "./assets/images/slideshow/" + slides[i].image
 	texteSlider.innerHTML = slides[i].tagLine
-	createBulletPoints(i)
-	
+	createBulletPoints(i)	
 })
 
 // Ajout écouteur d'événement, eventListener sur flèche gauche + fonction
